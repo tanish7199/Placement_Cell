@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/wave"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="80dp"
+
+    android:theme="@style/Base.Theme.AppCompat.Light"
+    tools:context="com.gmail.placement_cell.LoginActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student Login"
+        android:id="@+id/Student"/>
+
+    <Button
+        android:id="@+id/Faculty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Faculty Login"/>
+
+    <Button
+        android:id="@+id/Admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Admin Login"
+        android:layout_marginBottom="100dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:id="@+id/Choose"
+        android:visibility="invisible"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:text="Choose from the following:"/>
+
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/withEmail"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:background="#abbac6"
+        android:onClick="onEmailLogin"
+        android:text="Sign in with Email"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="26sp"
+        android:textStyle="" />
+
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/withPhone"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="#abbac6"
+        android:onClick="onPhoneLogin"
+        android:textSize="26sp"
+        android:text="Sign in with Phone"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textStyle="" />
+
+
+</LinearLayout>

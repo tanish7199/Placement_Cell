@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Placement_Cell</string>
+    <string name="Front">Welcome</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="forgot">Forgot Password?</string>
+    <string name="create">Create an Account?</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_register">Register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_login2">Sign in</string>
+    <string name="name">Enter your name</string>
+    <string name="hint_gender">Gender</string>
+    <string name="hint_dob">Date of Birth</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="error">The field is required</string>
+    <string name="roll_number">Roll Number</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //Account kit
+    <string name="FACEBOOK_APP_ID">2519152671643329</string>
+    <string name="ACCOUNT_KIT_CLIENT_TOKEN">2f02a163b69f932f0931ee51ced11b19</string>
+    <string name="ak_login_protocol_scheme">ak2519152671643329</string>
+</resources>
