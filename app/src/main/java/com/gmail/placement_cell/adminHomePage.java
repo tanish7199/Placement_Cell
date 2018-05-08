@@ -1,15 +1,10 @@
 package com.gmail.placement_cell;
 
-import android.app.LoaderManager;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.content.Loader;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,21 +13,16 @@ import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitCallback;
 import com.facebook.accountkit.AccountKitError;
 import com.facebook.accountkit.PhoneNumber;
-import com.gmail.placement_cell.database.timetableContract;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 
-import java.util.Arrays;
 import java.util.Locale;
 
-public class adminHomePage extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
+public class adminHomePage extends AppCompatActivity {
 
-    private static final int LOADER_ID = 0;
-    CursorAdpaterClass mCursorAdapter;
 
     TextView info;
-    TextView displayView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,16 +55,25 @@ public class adminHomePage extends AppCompatActivity implements LoaderManager.Lo
                 Toast.makeText(adminHomePage.this, toastMessage, Toast.LENGTH_LONG).show();
             }
         });
-        mCursorAdapter = new CursorAdpaterClass(this,null);
-        ListView listView = findViewById(R.id.list_item);
-        listView.setAdapter(mCursorAdapter);
+
         Button Submit = findViewById(R.id.submitView);
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //displayDatabaseInfo();
-                getLoaderManager().initLoader(LOADER_ID,null,adminHomePage.this); }
+                //displayDatabaseInfo();
+                Intent i = new Intent(adminHomePage.this, showTimeTable.class);
+                startActivity(i);
+            }
         });
+        Button SubmitStudDetails = findViewById(R.id.submitStudentDetails);
+        SubmitStudDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(adminHomePage.this,showStudentDetails.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     public void onLogout(View view) {
@@ -100,6 +99,7 @@ public class adminHomePage extends AppCompatActivity implements LoaderManager.Lo
         }
         return phoneNumber;
     }
+}
 
    /* public void displayDatabaseInfo() {
         String[] projection = {
@@ -164,28 +164,5 @@ public class adminHomePage extends AppCompatActivity implements LoaderManager.Lo
         }
     }
 */
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        String[] projection = {
-                timetableContract.timetableEntry._ID,
-                timetableContract.timetableEntry.TEACHER_NAME,
-                timetableContract.timetableEntry.MONDAY,
-                timetableContract.timetableEntry.TUESDAY,
-                timetableContract.timetableEntry.WEDNESDAY,
-                timetableContract.timetableEntry.THURSDAY,
-                timetableContract.timetableEntry.FRIDAY
-        };
-        return new CursorLoader(this,timetableContract.timetableEntry.CONTENT_URI,projection,null,
-                null,null);
-    }
 
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        mCursorAdapter.swapCursor(data);
-    }
 
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-        mCursorAdapter.swapCursor(null);
-    }
-}

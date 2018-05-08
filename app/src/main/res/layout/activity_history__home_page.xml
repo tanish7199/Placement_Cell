@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#919df9"
-            android:text="History"
+            android:text="Upcoming"
             android:textColor="#FFF"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -102,16 +102,6 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#896c6c"
-        android:text="Dashboard"
-        android:textAlignment="center"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
     <GridView
         android:id="@+id/GridView"

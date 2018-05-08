@@ -1,11 +1,14 @@
 package com.gmail.placement_cell;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +17,8 @@ import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitCallback;
 import com.facebook.accountkit.AccountKitError;
 import com.facebook.accountkit.PhoneNumber;
+import com.gmail.placement_cell.database.timetableContract;
+import com.gmail.placement_cell.student_database.StudentContract;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
@@ -28,6 +33,15 @@ public class HomePage extends AppCompatActivity {
     Button mButton3;
     Button mButton4;
     TextView info;
+    EditText CGPA;
+    EditText Resume;
+    EditText Name;
+    EditText Roll;
+    String CGPA1;
+    String Resume1;
+    String Name1;
+    String Roll1;
+    Button Submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +126,13 @@ public class HomePage extends AppCompatActivity {
                     mButton3.setBackgroundColor(Color.rgb(145, 145, 253));
             }
         });
+        Submit = findViewById(R.id.SubmitStudent);
+        Submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                database();
+            }
+        });
 
     }
 
@@ -137,4 +158,35 @@ public class HomePage extends AppCompatActivity {
         }
         return phoneNumber;
     }
+
+
+    private void database() {
+        Name = findViewById(R.id.Name);
+        Name1 = Name.getText().toString().trim();
+
+        CGPA = findViewById(R.id.CGPA);
+        CGPA1 = CGPA.getText().toString().trim();
+
+        Roll = findViewById(R.id.RollNumber);
+        Roll1 = Roll.getText().toString().trim();
+
+        Resume = findViewById(R.id.Resume);
+        Resume1 = Resume.getText().toString().trim();
+
+        ContentValues Values = new ContentValues();
+        Values.put(StudentContract.StudentEntry.STUDENT_NAME, Name1);
+        Values.put(StudentContract.StudentEntry.CGPA, CGPA1);
+        Values.put(StudentContract.StudentEntry.ROLL_NUMBER, Roll1);
+        Values.put(StudentContract.StudentEntry.RESUME, Resume1);
+
+        Uri newUri = getContentResolver().insert(StudentContract.StudentEntry.CONTENT_URI, Values);
+
+        if (newUri == null) {
+            Toast.makeText(this, "Error saving", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }
