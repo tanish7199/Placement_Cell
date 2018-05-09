@@ -75,6 +75,7 @@
             android:name=".student_database.studentProvider"
             android:authorities="com.gmail.placement_cell.student"
             android:exported="false" />
+
         <activity
             android:name=".ContactUs"
             android:theme="@style/Theme.AppCompat.Light" />
@@ -84,6 +85,7 @@
         <activity
             android:name=".showStudentDetails"
             android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name=".studentAboutUs"></activity>
     </application>
 
 </manifest>

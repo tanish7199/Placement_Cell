@@ -106,6 +106,8 @@ public class HomePage extends AppCompatActivity {
         mButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(HomePage.this,ContactUs.class);
+                startActivity(i);
                 if (count % 2 != 0) {
                     mButton3.setBackgroundColor(Color.MAGENTA);
                     count++;
@@ -118,6 +120,8 @@ public class HomePage extends AppCompatActivity {
         mButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(HomePage.this,ContactUs.class);
+                startActivity(i);
                 if (count % 2 != 0) {
                     mButton4.setBackgroundColor(Color.MAGENTA);
                     count++;

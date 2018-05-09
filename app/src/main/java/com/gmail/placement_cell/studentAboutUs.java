@@ -18,14 +18,13 @@ import com.google.i18n.phonenumbers.Phonenumber;
 
 import java.util.Locale;
 
-public class ContactUs extends AppCompatActivity {
+public class studentAboutUs extends AppCompatActivity {
     TextView info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_us);
-
+        setContentView(R.layout.activity_student_about_us);
         info = findViewById(R.id.info);
         AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
             @Override
@@ -50,7 +49,7 @@ public class ContactUs extends AppCompatActivity {
             public void onError(final AccountKitError error) {
                 // display error
                 String toastMessage = error.getErrorType().getMessage();
-                Toast.makeText(ContactUs.this, toastMessage, Toast.LENGTH_LONG).show();
+                Toast.makeText(studentAboutUs.this, toastMessage, Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -69,7 +69,7 @@ public class adminHomePage extends AppCompatActivity {
         SubmitStudDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(adminHomePage.this,showStudentDetails.class);
+                Intent i = new Intent(adminHomePage.this, showStudentDetails.class);
                 startActivity(i);
             }
         });

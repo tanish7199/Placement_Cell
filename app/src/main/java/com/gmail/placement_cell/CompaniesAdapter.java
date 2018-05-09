@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,13 +26,6 @@ public class CompaniesAdapter extends ArrayAdapter<CompaniesList> {
     @Override
     public View getView(int position, @Nullable View ConvertView, @NonNull ViewGroup parent) {
         ViewHolder Viewholder;
-        Integer[] Images = {
-                R.drawable.ab, R.drawable.cd,
-                R.drawable.ef, R.drawable.gh,
-                R.drawable.ij, R.drawable.kl,
-                R.drawable.mn, R.drawable.op,
-                R.drawable.qr, R.drawable.st
-        };
         if (ConvertView == null) {
             ConvertView = LayoutInflater.from(getContext())
                     .inflate(R.layout.grid_view, parent, false);
@@ -49,8 +41,7 @@ public class CompaniesAdapter extends ArrayAdapter<CompaniesList> {
         return (ConvertView);
     }
 
-    public static class ViewHolder
-    {
+    public static class ViewHolder {
         TextView CompanyName;
         ImageView CompanyImage;
 

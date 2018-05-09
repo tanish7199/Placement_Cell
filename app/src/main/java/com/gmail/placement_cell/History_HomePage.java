@@ -86,6 +86,8 @@ public class History_HomePage extends AppCompatActivity {
         mButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(History_HomePage.this,HomePage.class);
+                startActivity(i);
                 if (count % 2 != 0) {
                     mButton1.setBackgroundColor(Color.MAGENTA);
                     count++;
@@ -98,8 +100,9 @@ public class History_HomePage extends AppCompatActivity {
         mButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, History_HomePage.class);
+                /*Intent intent = new Intent(History_HomePage.this, History_HomePage.class);
                 startActivity(intent);
+                */
                 if (count % 2 != 0) {
                     mButton2.setBackgroundColor(Color.MAGENTA);
                     count++;
@@ -112,6 +115,8 @@ public class History_HomePage extends AppCompatActivity {
         mButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(History_HomePage.this,ContactUs.class);
+                startActivity(i);
                 if (count % 2 != 0) {
                     mButton3.setBackgroundColor(Color.MAGENTA);
                     count++;
@@ -124,6 +129,8 @@ public class History_HomePage extends AppCompatActivity {
         mButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(History_HomePage.this,studentAboutUs.class);
+                startActivity(i);
                 if (count % 2 != 0) {
                     mButton4.setBackgroundColor(Color.MAGENTA);
                     count++;
