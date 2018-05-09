@@ -61,10 +61,11 @@
             android:layout_marginTop="0dp"
             android:layout_weight="1"
             android:background="#919df9"
-            android:text="Home"
             android:textColor="#FFF"
+            android:textStyle="bold"
             android:textSize="12sp"
-            android:textStyle="bold" />
+            android:text="Home"
+            />
 
         <Button
             android:id="@+id/History"

@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,6 @@ import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitCallback;
 import com.facebook.accountkit.AccountKitError;
 import com.facebook.accountkit.PhoneNumber;
-import com.gmail.placement_cell.database.timetableContract;
 import com.gmail.placement_cell.student_database.StudentContract;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
@@ -47,7 +47,6 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        mButton1 = findViewById(R.id.Home);
         count = 0;
 
         info = findViewById(R.id.info);
@@ -77,7 +76,7 @@ public class HomePage extends AppCompatActivity {
                 Toast.makeText(HomePage.this, toastMessage, Toast.LENGTH_LONG).show();
             }
         });
-
+        mButton1 = findViewById(R.id.Home);
         mButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +129,29 @@ public class HomePage extends AppCompatActivity {
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Name = findViewById(R.id.Name);
+                Name1 = Name.getText().toString().trim();
+                if (TextUtils.isEmpty(Name1)) {
+                    Name.setError("Enter your name");
+                }
+
+                CGPA = findViewById(R.id.CGPA);
+                CGPA1 = CGPA.getText().toString().trim();
+                if ((!(TextUtils.isDigitsOnly(CGPA1)))||TextUtils.isEmpty(CGPA1)) {
+                    CGPA.setError("Enter valid CGPA");
+                }
+                Roll = findViewById(R.id.RollNumber);
+                Roll1 = Roll.getText().toString().trim();
+                if (!(TextUtils.isDigitsOnly(Roll1))||TextUtils.isEmpty(Roll1)) {
+                    Roll.setError("Enter valid roll number");
+                }
+
+                Resume = findViewById(R.id.Resume);
+                Resume1 = Resume.getText().toString().trim();
+                if (TextUtils.isEmpty(Resume1)) {
+                    Resume.setError("Enter resume link");
+                }
+
                 database();
             }
         });

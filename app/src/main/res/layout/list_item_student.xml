@@ -8,28 +8,40 @@
 
     <TextView
         android:id="@+id/showStudentName"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_weight="1"
+        android:layout_marginBottom="8dp"
+        android:textColor="#000"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/showCGPA"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
-        android:layout_weight="1" />
+        android:layout_marginStart="0dp"
+        android:layout_weight="0.5"
+        android:textColor="#000"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/showRollNumber"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:textColor="#000"
         android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"
         android:layout_weight="1" />
 
     <TextView
         android:id="@+id/showResume"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:textColor="#000"
         android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"
         android:layout_weight="1" />
 </LinearLayout>

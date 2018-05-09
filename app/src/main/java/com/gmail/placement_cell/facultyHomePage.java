@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,11 +79,12 @@ public class facultyHomePage extends AppCompatActivity {
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Teacher1 = findViewById(R.id.Teacher);
+                Teacher = Teacher1.getText().toString();
+                if (TextUtils.isEmpty(Teacher)) {
+                    Teacher1.setError("Enter your name");
+                }
                 database();
-                finish();
-                onLogout(v);
-                Intent i = new Intent(facultyHomePage.this,LoginActivity.class);
-                startActivity(i);
             }
         });
         //displayDatabaseInfo();
@@ -90,22 +92,19 @@ public class facultyHomePage extends AppCompatActivity {
 
     //DATABASE
     private void database() {
+
         Teacher1 = findViewById(R.id.Teacher);
-        Teacher = Teacher1.getText().toString().trim();
-
         Monday1 = findViewById(R.id.Monday);
-        Monday = Monday1.getText().toString().trim();
-
         Tuesday1 = findViewById(R.id.Tuesday);
-        Tuesday = Tuesday1.getText().toString().trim();
-
         Wednesday1 = findViewById(R.id.Wednesday);
-        Wednesday = Wednesday1.getText().toString().trim();
-
         Thursday1 = findViewById(R.id.Thursday);
-        Thursday = Thursday1.getText().toString().trim();
-
         Friday1 = findViewById(R.id.Friday);
+
+        Teacher = Teacher1.getText().toString().trim();
+        Monday = Monday1.getText().toString().trim();
+        Tuesday = Tuesday1.getText().toString().trim();
+        Wednesday = Wednesday1.getText().toString().trim();
+        Thursday = Thursday1.getText().toString().trim();
         Friday = Friday1.getText().toString().trim();
 
         ContentValues Values = new ContentValues();
@@ -115,6 +114,7 @@ public class facultyHomePage extends AppCompatActivity {
         Values.put(timetableContract.timetableEntry.WEDNESDAY, Wednesday);
         Values.put(timetableContract.timetableEntry.THURSDAY, Thursday);
         Values.put(timetableContract.timetableEntry.FRIDAY, Friday);
+
         Uri newUri = getContentResolver().insert(timetableContract.timetableEntry.CONTENT_URI, Values);
 
         if (newUri == null) {
