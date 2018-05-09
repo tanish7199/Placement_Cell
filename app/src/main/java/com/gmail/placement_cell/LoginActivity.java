@@ -142,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void launchFacultyAccountActivity() {
-        Intent intent = new Intent(this, facultyHomePage.class);
+        Intent intent = new Intent(this, facultyMenuPage.class);
         startActivity(intent);
         finish();
     }

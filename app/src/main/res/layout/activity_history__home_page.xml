@@ -103,9 +103,39 @@
 
     </LinearLayout>
 
-    <GridView
-        android:id="@+id/GridView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="2" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#c9bfbf"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Companies coming in May:"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <GridView
+            android:id="@+id/GridView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Companies coming in June:"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <GridView
+            android:id="@+id/GridView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2" />
+    </LinearLayout>
 </LinearLayout>

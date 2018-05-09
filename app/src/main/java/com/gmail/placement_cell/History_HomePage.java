@@ -27,6 +27,7 @@ public class History_HomePage extends AppCompatActivity {
 
     public int count = 0;
     List<CompaniesList> companiesLists;
+
     TextView info;
     Button mButton1;
     Button mButton2;
@@ -37,7 +38,7 @@ public class History_HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history__home_page);
-        int position = 9;
+        int position = 10;
         Integer[] Images = {
                 R.drawable.ab, R.drawable.cd,
                 R.drawable.ef, R.drawable.gh,
@@ -46,14 +47,15 @@ public class History_HomePage extends AppCompatActivity {
                 R.drawable.qr, R.drawable.st
         };
         String[] companyName = {"BYJUs", "Hitachi", "Infosys",
-                "Amazon", "Verizon", "Unisys",
-                "Capgemini", "Deepak-Nitrite", "OT-Morpho", "Birlasoft"};
+                "Amazon", "Verizon", "Unisys", "Capgemini", "Deepak-Nitrite", "OT-Morpho", "Birlasoft"};
         companiesLists = new ArrayList<>();
-        for (int i = 0; i <= position; i++) {
+        for (int i = 0; i < position; i++) {
             companiesLists.add(new CompaniesList(Images[i], companyName[i]));
         }
 
-        GridView listView = findViewById(R.id.GridView);
+
+        GridView listView = findViewById(R.id.GridView1);
+
         CompaniesAdapter adapter = new CompaniesAdapter(this, companiesLists);
         listView.setAdapter(adapter);
         info = findViewById(R.id.info);
@@ -86,7 +88,7 @@ public class History_HomePage extends AppCompatActivity {
         mButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(History_HomePage.this,HomePage.class);
+                Intent i = new Intent(History_HomePage.this, HomePage.class);
                 startActivity(i);
                 if (count % 2 != 0) {
                     mButton1.setBackgroundColor(Color.MAGENTA);
@@ -115,7 +117,7 @@ public class History_HomePage extends AppCompatActivity {
         mButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(History_HomePage.this,ContactUs.class);
+                Intent i = new Intent(History_HomePage.this, ContactUs.class);
                 startActivity(i);
                 if (count % 2 != 0) {
                     mButton3.setBackgroundColor(Color.MAGENTA);
@@ -129,7 +131,7 @@ public class History_HomePage extends AppCompatActivity {
         mButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(History_HomePage.this,studentAboutUs.class);
+                Intent i = new Intent(History_HomePage.this, studentAboutUs.class);
                 startActivity(i);
                 if (count % 2 != 0) {
                     mButton4.setBackgroundColor(Color.MAGENTA);

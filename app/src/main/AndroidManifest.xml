@@ -31,10 +31,10 @@
         <activity
             android:name=".HomePage"
             android:label="Home Page"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".History_HomePage"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <meta-data
             android:name="com.facebook.accountkit.ApplicationName"
@@ -62,10 +62,10 @@
             tools:replace="android:theme" />
         <activity
             android:name=".facultyHomePage"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".adminHomePage"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <provider
             android:name=".database.timetableProvider"
@@ -78,14 +78,19 @@
 
         <activity
             android:name=".ContactUs"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".showTimeTable"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".showStudentDetails"
-            android:theme="@style/Theme.AppCompat.Light" />
-        <activity android:name=".studentAboutUs"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".studentAboutUs"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".facultyMenuPage"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

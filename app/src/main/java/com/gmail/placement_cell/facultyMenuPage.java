@@ -1,7 +1,6 @@
 package com.gmail.placement_cell;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -26,16 +25,13 @@ import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class studentAboutUs extends AppCompatActivity {
-    private static int currentPage = 0;
+public class facultyMenuPage extends AppCompatActivity {
     private static ViewPager mPager;
+    private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    public int count = 0;
     TextView info;
-    Button mButton1;
-    Button mButton2;
-    Button mButton3;
-    Button mButton4;
+    Button Timetable;
+    Button seeDuty;
     private ArrayList<ImageModel> imageModelArrayList;
 
     private int[] myImageList = new int[]{
@@ -44,69 +40,16 @@ public class studentAboutUs extends AppCompatActivity {
             R.drawable.chitkaralogo, R.drawable.chitkaralogo
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_about_us);
-        info = findViewById(R.id.info);
+        setContentView(R.layout.activity_faculty_menu_page);
+
         imageModelArrayList = new ArrayList<>();
         imageModelArrayList = populateList();
-        init();
 
-        mButton1 = findViewById(R.id.Home);
-        mButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(studentAboutUs.this, HomePage.class);
-                startActivity(i);
-                if (count % 2 != 0) {
-                    mButton1.setBackgroundColor(Color.MAGENTA);
-                    count++;
-                } else
-                    mButton1.setBackgroundColor(Color.rgb(145, 145, 253));
-            }
-        });
-        mButton2 = findViewById(R.id.History);
-        count = 0;
-        mButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(studentAboutUs.this, History_HomePage.class);
-                startActivity(intent);
-                if (count % 2 != 0) {
-                    mButton2.setBackgroundColor(Color.MAGENTA);
-                    count++;
-                } else
-                    mButton2.setBackgroundColor(Color.rgb(145, 145, 253));
-            }
-        });
-        mButton3 = findViewById(R.id.Contact_Us);
-        count = 0;
-        mButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(studentAboutUs.this, ContactUs.class);
-                startActivity(i);
-                if (count % 2 != 0) {
-                    mButton3.setBackgroundColor(Color.MAGENTA);
-                    count++;
-                } else
-                    mButton3.setBackgroundColor(Color.rgb(145, 145, 253));
-            }
-        });
-        mButton4 = findViewById(R.id.About_Us);
-        count = 0;
-        mButton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (count % 2 != 0) {
-                    mButton4.setBackgroundColor(Color.MAGENTA);
-                    count++;
-                } else
-                    mButton3.setBackgroundColor(Color.rgb(145, 145, 253));
-            }
-        });
+        init();
+        info = findViewById(R.id.info);
         AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
             @Override
             public void onSuccess(final Account account) {
@@ -130,10 +73,27 @@ public class studentAboutUs extends AppCompatActivity {
             public void onError(final AccountKitError error) {
                 // display error
                 String toastMessage = error.getErrorType().getMessage();
-                Toast.makeText(studentAboutUs.this, toastMessage, Toast.LENGTH_LONG).show();
+                Toast.makeText(facultyMenuPage.this, toastMessage, Toast.LENGTH_LONG).show();
+            }
+        });
+        Timetable = findViewById(R.id.timeTable);
+        Timetable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(facultyMenuPage.this, facultyHomePage.class);
+                startActivity(i);
+            }
+        });
+        seeDuty = findViewById(R.id.seeDuty);
+        seeDuty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(facultyMenuPage.this, "Development in progress", Toast.LENGTH_SHORT).show();
+                //Intent i = new Intent(facultyMenuPage.this,)
             }
         });
     }
+
 
     public void onLogout(View view) {
         // logout of Account Kit
@@ -173,8 +133,8 @@ public class studentAboutUs extends AppCompatActivity {
 
     private void init() {
 
-        mPager = findViewById(R.id.pager);
-        mPager.setAdapter(new slideAdapter(studentAboutUs.this, imageModelArrayList));
+        mPager = (ViewPager) findViewById(R.id.pager);
+        mPager.setAdapter(new slideAdapter(facultyMenuPage.this, imageModelArrayList));
 
         CirclePageIndicator indicator = findViewById(R.id.indicator);
 
@@ -225,5 +185,6 @@ public class studentAboutUs extends AppCompatActivity {
             }
         });
     }
+
 
 }
