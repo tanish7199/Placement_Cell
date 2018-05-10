@@ -2,6 +2,8 @@ package com.gmail.placement_cell;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +18,28 @@ import com.facebook.accountkit.PhoneNumber;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
+import com.viewpagerindicator.CirclePageIndicator;
 
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class adminHomePage extends AppCompatActivity {
 
 
+    private static int currentPage = 0;
+    private static ViewPager mPager;
+    private static int NUM_PAGES = 0;
     TextView info;
+    private ArrayList<ImageModel> imageModelArrayList;
+
+    private int[] myImageList = new int[]{
+            R.drawable.a, R.drawable.b,
+            R.drawable.c, R.drawable.d,
+            R.drawable.e, R.drawable.f,
+            R.drawable.g, R.drawable.h
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +47,9 @@ public class adminHomePage extends AppCompatActivity {
         setContentView(R.layout.activity_admin_home_page);
 
         info = findViewById(R.id.info);
+        imageModelArrayList = new ArrayList<>();
+        imageModelArrayList = populateList();
+        init();
         AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
             @Override
             public void onSuccess(final Account account) {
@@ -73,7 +93,20 @@ public class adminHomePage extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        Button assign = findViewById(R.id.assignDuties);
+        assign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(adminHomePage.this,"Development in progress",Toast.LENGTH_SHORT).show();
+            }
+        });
+        Button add = findViewById(R.id.addCompany);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(adminHomePage.this,"Development in progress",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void onLogout(View view) {
@@ -99,6 +132,74 @@ public class adminHomePage extends AppCompatActivity {
         }
         return phoneNumber;
     }
+
+    private ArrayList<ImageModel> populateList() {
+
+        ArrayList<ImageModel> list = new ArrayList<>();
+
+        for (int i = 0; i < 6; i++) {
+            ImageModel imageModel = new ImageModel();
+            imageModel.setImage_drawable(myImageList[i]);
+            list.add(imageModel);
+        }
+
+        return list;
+    }
+
+    private void init() {
+
+        mPager = findViewById(R.id.pager);
+        mPager.setAdapter(new slideAdapter(adminHomePage.this, imageModelArrayList));
+
+        CirclePageIndicator indicator = findViewById(R.id.indicator);
+        indicator.setViewPager(mPager);
+
+        final float density = getResources().getDisplayMetrics().density;
+
+//Set circle indicator radius
+        indicator.setRadius(5 * density);
+
+        NUM_PAGES = imageModelArrayList.size();
+
+        // Auto start of viewpager
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == NUM_PAGES) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 2000, 2000);
+
+        // Pager listener over indicator
+        indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageSelected(int position) {
+                currentPage = position;
+
+            }
+
+            @Override
+            public void onPageScrolled(int pos, float arg1, int arg2) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int pos) {
+
+            }
+        });
+    }
+
 }
 
    /* public void displayDatabaseInfo() {

@@ -26,18 +26,21 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class facultyMenuPage extends AppCompatActivity {
+
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
+
     TextView info;
     Button Timetable;
     Button seeDuty;
-    private ArrayList<ImageModel> imageModelArrayList;
 
+    private ArrayList<ImageModel> imageModelArrayList;
     private int[] myImageList = new int[]{
-            R.drawable.chitkaralogo, R.drawable.chitkaralogo,
-            R.drawable.chitkaralogo, R.drawable.chitkaralogo,
-            R.drawable.chitkaralogo, R.drawable.chitkaralogo
+            R.drawable.a, R.drawable.b,
+            R.drawable.c, R.drawable.d,
+            R.drawable.e, R.drawable.f,
+            R.drawable.g, R.drawable.h
     };
 
     @Override
@@ -133,7 +136,7 @@ public class facultyMenuPage extends AppCompatActivity {
 
     private void init() {
 
-        mPager = (ViewPager) findViewById(R.id.pager);
+        mPager = findViewById(R.id.pager);
         mPager.setAdapter(new slideAdapter(facultyMenuPage.this, imageModelArrayList));
 
         CirclePageIndicator indicator = findViewById(R.id.indicator);

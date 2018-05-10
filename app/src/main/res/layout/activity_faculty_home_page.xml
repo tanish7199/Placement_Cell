@@ -71,6 +71,7 @@
                     android:id="@+id/Teacher"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
                     android:hint="Enter your name here" />
             </android.support.design.widget.TextInputLayout>
 
@@ -91,7 +92,8 @@
                     android:id="@+id/Monday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Enter lecture number here..." />
+                    android:hint="Enter lecture number here..."
+                     />
             </LinearLayout>
 
             <LinearLayout
@@ -108,9 +110,11 @@
 
                 <EditText
                     android:id="@+id/Tuesday"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Enter lecture number here..." />
+                    android:hint="Enter lecture number here..."
+                     />
             </LinearLayout>
 
             <LinearLayout
@@ -129,7 +133,8 @@
                     android:id="@+id/Wednesday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Enter lecture number here..." />
+                    android:hint="Enter lecture number here..."
+                     />
             </LinearLayout>
 
             <LinearLayout
@@ -146,9 +151,11 @@
 
                 <EditText
                     android:id="@+id/Thursday"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Enter lecture number here..." />
+                    android:hint="Enter lecture number here..."
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -166,9 +173,11 @@
 
                 <EditText
                     android:id="@+id/Friday"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Enter lecture number here..." />
+                    android:hint="Enter lecture number here..."
+                     />
 
                 <Button
                     android:id="@+id/Submit"

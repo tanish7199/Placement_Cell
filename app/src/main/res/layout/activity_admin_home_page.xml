@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -47,30 +48,88 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-    <Button
-        android:id="@+id/submitView"
-        android:layout_marginTop="30dp"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:textColor="#FFF"
-        android:textStyle="bold"
-        android:background="#919df9"
-        android:layout_height="wrap_content"
-        android:text="Click here to see the timetable" />
-    <Button
-        android:id="@+id/submitStudentDetails"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:textColor="#FFF"
-        android:textStyle="bold"
-        android:background="#919df9"
-        android:layout_height="wrap_content"
-        android:text="Click here to see the student details" />
+        android:layout_height="match_parent"
+        android:background="#c9bfbf"
+        android:orientation="vertical">
 
-    <!--   <TextView
-        android:id="@+id/tables"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="220dp" />
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />-->
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:padding="10dp"
+            app:centered="true"
+            android:background="#c9bfbf"
+            app:fillColor="#df0623"
+            app:pageColor="#fff"
+            app:snap="false" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/submitView"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:background="#919df9"
+                android:text="Click here to see faculty timetable"
+                android:textColor="#FFF"
+                android:textStyle="bold" />
+
+            <Button
+
+                android:id="@+id/submitStudentDetails"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:background="#919df9"
+                android:text="Click here to see student database"
+                android:textColor="#FFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/assignDuties"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:background="#919df9"
+                android:text="Click here to assign duties to faculty"
+                android:textColor="#FFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/addCompany"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:background="#919df9"
+                android:text="Click here to add a new company"
+                android:textColor="#FFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

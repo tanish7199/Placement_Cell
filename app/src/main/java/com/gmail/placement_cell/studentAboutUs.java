@@ -39,9 +39,10 @@ public class studentAboutUs extends AppCompatActivity {
     private ArrayList<ImageModel> imageModelArrayList;
 
     private int[] myImageList = new int[]{
-            R.drawable.chitkaralogo, R.drawable.chitkaralogo,
-            R.drawable.chitkaralogo, R.drawable.chitkaralogo,
-            R.drawable.chitkaralogo, R.drawable.chitkaralogo
+            R.drawable.a, R.drawable.b,
+            R.drawable.c, R.drawable.d,
+            R.drawable.e, R.drawable.f,
+            R.drawable.g, R.drawable.h
     };
 
 

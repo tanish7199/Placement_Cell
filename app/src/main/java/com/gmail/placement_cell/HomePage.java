@@ -141,7 +141,7 @@ public class HomePage extends AppCompatActivity {
 
                 CGPA = findViewById(R.id.CGPA);
                 CGPA1 = CGPA.getText().toString().trim();
-                if ((!(TextUtils.isDigitsOnly(CGPA1)))||TextUtils.isEmpty(CGPA1)) {
+                if (TextUtils.isEmpty(CGPA1)) {
                     CGPA.setError("Enter valid CGPA");
                 }
                 Roll = findViewById(R.id.RollNumber);
@@ -155,7 +155,6 @@ public class HomePage extends AppCompatActivity {
                 if (TextUtils.isEmpty(Resume1)) {
                     Resume.setError("Enter resume link");
                 }
-
                 database();
             }
         });
